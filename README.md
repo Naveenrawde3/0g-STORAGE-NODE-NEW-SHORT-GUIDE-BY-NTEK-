@@ -3,13 +3,13 @@
 > 🧠 Created by NTEK — Join our Telegram: [t.me/ntekearning2](https://t.me/ntekearning2)
 
 
-## 💻 System Requirements
+## 💻 SYSTEM REQUIRMENT :
 
 - Linux VPS (Ubuntu 20.04 or later)
 - Minimum hardware: 4-core CPU, 8GB RAM, 200GB SSD
 
 
-## ⚙️ Pre-Setup
+## ⚙️ PRE-SETUP
 
 ### 🟢 Add 0G RPC:
 
@@ -17,7 +17,7 @@
 https://chainscan-galileo.0g.ai/
 ```
 
-### 💧 Get Faucet:
+### 💧 GET FAUCET :
 
 ```
 https://faucet.0g.ai/
@@ -36,7 +36,7 @@ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && \
 source ~/.bashrc && go version && git clone https://github.com/0glabs/0g-storage-node.git && cd 0g-storage-node && git checkout v1.1.0 && git submodule update --init && cargo build --release && rm -rf $HOME/0g-storage-node/run/config.toml && curl -o $HOME/0g-storage-node/run/config.toml https://raw.githubusercontent.com/Naveenrawde3/0G-LABS-STORAGE-NODE-RUN-GUIDE-BY-NTEK/main/config.toml && nano $HOME/0g-storage-node/run/config.toml
 ````
 
-## 🌐 Change RPC
+## 🌐 CHANGE RPC + ADD PRIVATE KEY :
 
 * Visit: [https://www.astrostake.xyz/0g-status](https://www.astrostake.xyz/0g-status)
 
@@ -61,7 +61,7 @@ WantedBy=multi-user.target
 EOF
 ````
 
-## Reload & Enable & Start service :
+## RELOA & ENABLE & START SERVICE :
 
 ```
 sudo systemctl daemon-reload
@@ -85,33 +85,31 @@ tar -xzvf $HOME/0g-storage-node/run/db/flow_db.tar.gz -C $HOME/0g-storage-node/r
 sudo systemctl restart zgs
 ```
 
-## 📡 5.  Monitoring and Logs :
+## 📡 5. MONITORING :
 
 ```bash
 sudo systemctl status zgs
 ```
 
-## 6. Check Full Logs :
+## 6. CHECK FULL LOGS :
 
 ```
 tail -f ~/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d)
 ```
 
-### 🔄 7.  Check Syncing :
+### 🔄 7.  CHECK SYNCKING :
 
 ```
  while true; do     response=$(curl -s -X POST http://localhost:5678 -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"zgs_getStatus","params":[],"id":1}');     logSyncHeight=$(echo $response | jq '.result.logSyncHeight');     connectedPeers=$(echo $response | jq '.result.connectedPeers');     echo -e "logSyncHeight: \033[32m$logSyncHeight\033[0m, connectedPeers: \033[34m$connectedPeers\033[0m";     sleep 5; done
 ```
 
-## 💽 Check Disk Space
+## 💽 CHECK DISK SPACE :
 
 ```bash
 df -h
 ```
 
-## 🧹 Remove the Node
-
-* If Your Vps storage got full, then u can follow these commands and instruction to Clear it & Do Again:
+## 🧹 REMOVE NODE (SPACE)
   
 ```
 sudo systemctl stop zgs
@@ -123,13 +121,11 @@ sudo rm /etc/systemd/system/zgs.service
 rm -rf $HOME/0g-storage-node
 ```
 
-## Process for Local Device & how to restart on next day
+## Process for Local Device & how to restart on next day :
 
 * So, For local PC All the process is same as VPS: You have to start from [Pre-Requirements 🛠]
-
-* 👉 Next Day process:
                   
-- Just Open your wsl/terminal and run
+- Just Open your wsl/terminal and run Next Day
 
 ```
 sudo systemctl restart zgs
@@ -138,19 +134,15 @@ sudo systemctl restart zgs
 ## 🌐 Useful Links
 
 * **Explorer (Txs View)**:
-  [https://chainscan-galileo.bangcode.id/](https://chainscan-galileo.bangcode.id/)
   [https://chainscan-galileo.0g.ai/](https://chainscan-galileo.0g.ai/)
 
 * **Miner Stats (Paste Wallet)**:
   [https://storagescan-galileo.0g.ai/miner/](https://storagescan-galileo.0g.ai/miner/)
 
----
-
 ## 📢 Community
 
 👉 Join Telegram for Help & Updates:
 [https://t.me/ntekearning2](https://t.me/ntekearning2)
-
 
 🛠 Made with ❤️ by **NTEK**
 
