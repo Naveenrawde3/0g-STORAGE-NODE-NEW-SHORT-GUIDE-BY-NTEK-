@@ -36,6 +36,10 @@ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && \
 source ~/.bashrc && go version && git clone https://github.com/0glabs/0g-storage-node.git && cd 0g-storage-node && git checkout v1.1.0 && git submodule update --init && cargo build --release && rm -rf $HOME/0g-storage-node/run/config.toml && curl -o $HOME/0g-storage-node/run/config.toml https://raw.githubusercontent.com/Naveenrawde3/0G-LABS-STORAGE-NODE-RUN-GUIDE-BY-NTEK/main/config.toml && nano $HOME/0g-storage-node/run/config.toml
 ````
 
+## 🌐 Change RPC
+
+* Visit: [https://www.astrostake.xyz/0g-status](https://www.astrostake.xyz/0g-status)
+
  ## 🛠  2. SETUP A SYSTEM SERVICE 
 
 ```bash
