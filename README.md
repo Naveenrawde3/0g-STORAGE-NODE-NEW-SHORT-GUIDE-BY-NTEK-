@@ -57,19 +57,15 @@ WantedBy=multi-user.target
 EOF
 ````
 
-## Reload :
+## Reload & Enable & Start service :
 
 ```
 sudo systemctl daemon-reload
 ```
 
-## Enable :
-
 ```
 sudo systemctl enable zgs
 ```
-
-## Start service :
 
 ```
 sudo systemctl start zgs
