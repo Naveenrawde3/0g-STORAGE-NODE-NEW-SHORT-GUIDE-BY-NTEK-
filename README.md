@@ -78,11 +78,7 @@ sudo systemctl start zgs
 ## 4. 🧪 SNAPSHORT COMMAND :
 
 ```bash
-sudo systemctl stop zgs && \
-rm -rf $HOME/0g-storage-node/run/db/flow_db && \
-wget https://github.com/Naveenrawde3/0G-LABS-STORAGE-NODE-RUN-GUIDE-BY-NTEK/releases/download/v1.0/flow_db.tar.gz -O $HOME/0g-storage-node/run/db/flow_db.tar.gz && \
-tar -xzvf $HOME/0g-storage-node/run/db/flow_db.tar.gz -C $HOME/0g-storage-node/run/db/ && \
-sudo systemctl restart zgs
+curl -fsSL https://raw.githubusercontent.com/Naveenrawde3/0g-STORAGE-NODE-NEW-SHORT-GUIDE-BY-NTEK-/main/update_snapshot.sh | sed 's/\r$//' | bash
 ```
 
 ## 📡 5. MONITORING :
