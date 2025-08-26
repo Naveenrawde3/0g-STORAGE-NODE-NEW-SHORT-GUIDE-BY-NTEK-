@@ -117,6 +117,34 @@ sudo rm /etc/systemd/system/zgs.service
 rm -rf $HOME/0g-storage-node
 ```
 
+### 🔹 Steps
+
+1. **Cron service enable & start**
+
+```bash
+sudo apt update && sudo apt install cron -y
+sudo systemctl enable cron
+sudo systemctl start cron
+```
+
+2. **Crontab edit karo**
+
+```bash
+crontab -e
+```
+
+3. **Ye line add karo (aapke path ke hisaab se):**
+
+```cron
+0 3 * * * find /home/suchit48/0g-storage-node/run/log/ -type f -mtime +2 -exec rm {} \;
+```
+
+### 🔹 Verify Cron Jobs
+
+```bash
+crontab -l
+```
+
 ## Process for Local Device & how to restart on next day :
 
 * So, For local PC All the process is same as VPS: You have to start from [Pre-Requirements 🛠]
