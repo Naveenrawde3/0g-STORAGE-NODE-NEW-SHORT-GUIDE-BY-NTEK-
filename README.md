@@ -75,10 +75,50 @@ sudo systemctl enable zgs
 sudo systemctl start zgs
 ```
 
-## 4. 🧪 SNAPSHORT COMMAND :
+## 3. 🧪 SNAPSHORT COMMAND :
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Naveenrawde3/0g-STORAGE-NODE-NEW-SHORT-GUIDE-BY-NTEK-/main/update_snapshot.sh | sed 's/\r$//' | bash
+```
+
+### 4.  AUTO SPACE DELETE
+
+A. STOP NODE 
+
+```
+sudo systemctl stop zgs
+```
+
+B. **Cron service enable & start**
+
+```bash
+sudo apt update && sudo apt install cron -y
+sudo systemctl enable cron
+sudo systemctl start cron
+```
+
+C. **Crontab edit karo**
+
+```bash
+crontab -e
+```
+
+D. **Ye line add karo (aapke path ke hisaab se):**
+
+```cron
+0 3 * * * find /home/suchit48/0g-storage-node/run/log/ -type f -mtime +2 -exec rm {} \;
+```
+
+### E.  Verify Cron Jobs
+
+```bash
+crontab -l
+```
+
+F. RESTART :
+   
+```
+sudo systemctl restart zgs
 ```
 
 ## 📡 5. MONITORING :
@@ -115,34 +155,6 @@ sudo systemctl stop zgs
 sudo systemctl disable zgs
 sudo rm /etc/systemd/system/zgs.service
 rm -rf $HOME/0g-storage-node
-```
-
-### 🔹 Steps
-
-1. **Cron service enable & start**
-
-```bash
-sudo apt update && sudo apt install cron -y
-sudo systemctl enable cron
-sudo systemctl start cron
-```
-
-2. **Crontab edit karo**
-
-```bash
-crontab -e
-```
-
-3. **Ye line add karo (aapke path ke hisaab se):**
-
-```cron
-0 3 * * * find /home/suchit48/0g-storage-node/run/log/ -type f -mtime +2 -exec rm {} \;
-```
-
-### 🔹 Verify Cron Jobs
-
-```bash
-crontab -l
 ```
 
 ## Process for Local Device & how to restart on next day :
